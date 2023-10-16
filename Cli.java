@@ -19,26 +19,47 @@ public class Cli {
 
             if (command.equals("date")) {
                 LocalDate myObj = LocalDate.now();
-                System.out.println(myObj);
+                output = myObj.toString(); // Get the unformatted date.
+				
             } else if (command.equals("time")) {
                 LocalTime myObj = LocalTime.now();
-                System.out.println(myObj);
+                output = myObj.toString(); // Get the unformatted time.
+
             } else if (command.equals("datetime")) {
                 LocalDateTime myObj = LocalDateTime.now();
-                System.out.println(myObj);
+                 output = myObj.toString();
+
             } else if (command.equals("useraccount")) {
                 String username = System.getProperty("user.name");
-                System.out.println(username);
-            } else if (command.equals("homedirectory")) {
-                String userhome = System.getProperty("user.home");
-                System.out.println(userhome);
+                output = (username);
+
+            } else if (command.equals("userhome")) {
+                String homedirectory = System.getProperty("user.home");
+                output = (homedirectory);
+
             } else if (command.equals("os")) {
                 String osname = System.getProperty("os.name") + " (" + System.getProperty("os.version") + ")";
-                System.out.println(osname);
-            } else {
+                output = (osname);
+
+		} else if (command.startsWith("printenv ")) {
+   		 String[] commandArgs = command.split(" ");
+     
+	      if (commandArgs.length > 1) {
+       		 String variableToLookFor =System.getenv(commandArgs[1]);
+	
+       		 if (variableToLookFor != null) {
+           	 output = commandArgs[1];
+       
+		 } else {
+        	 output = "Name variable is not correct";
+       		 }
+    } else {
+        output = "Name variable is not defined";
+    }
+		 } else {
                 output = "Command '" + command + "' not found.";
             }
-
+        
             System.out.println(output);
             System.out.print("> ");
         }
