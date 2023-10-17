@@ -49,14 +49,14 @@ public class Cliv2 {
                  String variableToLookFor =System.getenv(commandArgs[1]);
 
                  if (variableToLookFor != null) {
-                 output = variableToLookFor;
+                 output = variableToLookFor;}}
+
+		}else if (commandArgs[0].equals("echo")) { // take the same array for the same position for call echo
               
-	
-	         }}else if (commandArgs[0].equals("echo")) {
-               if (commandArgs.length > 1) {
-              output = commandArgs[1];
+		 if (commandArgs.length > 1) {
+             	 output = commandArgs[1];
            }
-               }  } else {
+               }  else {
                 output = "Command '" + command + "' not found.";
             }
 
