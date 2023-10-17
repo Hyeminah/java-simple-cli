@@ -14,7 +14,7 @@ public class Cliv2 {
             String output = "";
             String[] commandArgs =command.trim().split(" ",2); // for split the string in two and trim
 
-            if (command.equals("exit")) {
+            if (command.equals("exit")||command.equals("logout")) {
                 break;
                }
 
@@ -51,7 +51,7 @@ public class Cliv2 {
                  if (variableToLookFor != null) {
                  output = variableToLookFor;}}
 
-		}else if (commandArgs[0].equals("echo")) { // take the same array for the same position for call echo
+		}else if (commandArgs[0].equals("echo")|| commandArgs[0].equals("print")) { // take the same array for the same position for call echo, second time for change echo and print
               
 		 if (commandArgs.length > 1) {
              	 output = commandArgs[1];
