@@ -52,7 +52,8 @@ public class Cliv2 {
 		} else {       // if we did not specify an environment variable, so display all environment variables
    		        Map<String, String> env = System.getenv();
    		 for (Map.Entry<String, String> entry : env.entrySet()) {
-       		 output += entry.getKey() + " = " + entry.getValue() + "\n"; // Format like "variable_name = variable_value" and add a newline.
+       		 output += entry.getKey() + "=" + entry.getValue() + System.lineSeparator(); // Format like "variable_name = variable_value" and add a newline(/n doesn't work for every OS)
+								// Using the  System.lineSeparator() to add the appropriate newline for the current OS
    		 }
 		}
 
@@ -62,7 +63,7 @@ public class Cliv2 {
              	 output = commandArgs[1];
            }
                }  else {
-                output = "Command '" + command + "' not found.";
+                output = "Command '" + commandArgs[0] + "' not found.";
             }
 
             System.out.println(output);
