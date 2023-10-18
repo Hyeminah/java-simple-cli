@@ -41,15 +41,20 @@ public class Cliv2 {
             } else if (command.equals("os")) {
                 String osname = System.getProperty("os.name") + " (" + System.getProperty("os.version") + ")";
                 output = osname;
-		
-                } else if (commandArgs[0].equals("printenv")) {
-                
+	
+            } else if (commandArgs[0].equals("printenv")) {
+              	    if (commandArgs.length > 1) { 	 // The user specified an environment variable to look up
+   		 String variableToLookFor = System.getenv(commandArgs[1]);
 
-              if (commandArgs.length > 1) {
-                 String variableToLookFor =System.getenv(commandArgs[1]);
+   		 if (variableToLookFor != null) {  // If the variable exists, display its value
+      		  output = variableToLookFor;}
 
-                 if (variableToLookFor != null) {
-                 output = variableToLookFor;}}
+		} else {       // if we did not specify an environment variable, so display all environment variables
+   		        Map<String, String> env = System.getenv();
+   		 for (Map.Entry<String, String> entry : env.entrySet()) {
+       		 output += entry.getKey() + " = " + entry.getValue() + "\n"; // Format like "variable_name = variable_value" and add a newline.
+   		 }
+		}
 
 		}else if (commandArgs[0].equals("echo")|| commandArgs[0].equals("print")) { // take the same array for the same position for call echo, second time for change echo and print
               
