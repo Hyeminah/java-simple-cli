@@ -79,8 +79,12 @@ public class Cliv2 {
 					File[] files = currentDir.listFiles();
 
  					if (files != null) {
-						for (File file : files) {
-							output += file.getName() + System.lineSeparator();
+						 StringBuilder immuable = new StringBuilder();	//create a StringBuilder to build the output
+						 for (File file : files) {
+						 	immuable.append(file.getName()).append(System.lineSeparator());
+								output = immuable.toString();	// get concatenated string from the StringBuilder
+
+						//output += file.getName() + System.lineSeparator();
 				
 						}
 					}
