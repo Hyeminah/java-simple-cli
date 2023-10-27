@@ -82,11 +82,9 @@ public class Cliv2 {
 						 StringBuilder sb  = new StringBuilder();	//create a StringBuilder to build the output
 						 for (File file : files) {
 						 	sb.append(file.getName()).append(System.lineSeparator());
-								output = sb.toString();	// get concatenated string from the StringBuilder
-
-						//output += file.getName() + System.lineSeparator();
 				
 						}
+							output = sb.toString(); // get concatenated string from the StringBuilder
 					}
 					else {
 						output = "not a directory";
