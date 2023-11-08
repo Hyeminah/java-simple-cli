@@ -12,11 +12,12 @@ public class Cliv2 {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("> ");
 		while (true) {
+			CommandLine cmd = new CommandLine(scanner.nextLine());
 			String command = scanner.nextLine();
 			String output = "";
 			String[] commandArgs =command.trim().split(" ",2); // for split the string in two and trim
-
-			if (command.equals("exit")||command.equals("logout")) {
+			
+System.getProperty("os.name")			if (command.equals("exit")||command.equals("logout")) {
 				break;
 			}
 

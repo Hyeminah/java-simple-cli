@@ -1,4 +1,4 @@
-Public class CommandLine {
+public class CommandLine {
 
         private String commandName;
         private String argument;
