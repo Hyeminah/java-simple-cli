@@ -1,25 +1,27 @@
 public class CommandLine {
 
-        private String commandName;
+        private String command;
         private String argument;
 
-    public CommandLine(String command){
-        String[] commandArgs = command.split(" ",2);
-        this.commandName = commandArgs[0];
-        this.argument = (commandArgs.length>1) ? commandArgs[1]: null ;
+     	CommandLine(String commandExtract){
+        	String[] commandArgs = commandExtract.trim().split(" ",2);
+        	command = commandArgs[0].trim();
+        	if (commandArgs.length>1){ 
+			argument = commandArgs[1].trim();
 
-    }
+   	 	}
+	}
 
-     public String getCommandName(){
-        return commandName;
+     public String getCommand(){
+		return command;
      }
 
      public String getArguments(){
-        return argument;
+		return argument;
      }
 
      public boolean hasArgument(){
-        return argument != null;
+		return argument != null;
      }
 
 
